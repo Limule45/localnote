@@ -19,7 +19,7 @@ jobs:
           terraform_version: 1.10.5
 
       - name: Authenticate with GCP
-        run: echo "${{ secrets.GCP_CREDENTIALS }}" > tf/gcp.json
+        run: echo "${{ secrets.GCP_CREDENTIALS }}" > gcp.json
         working-directory: tf
 
       - name: Initialize Terraform

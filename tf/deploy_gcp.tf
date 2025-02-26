@@ -7,7 +7,7 @@ provider "google" {
 variable "gcp_credentials" {}
 
 resource "google_compute_instance" "default" {
-  name         = "test-vm-1"
+  name         = "test-vm-2"
   machine_type = "e2-micro"
   zone         = "europe-west1-b"
 
@@ -20,5 +20,9 @@ resource "google_compute_instance" "default" {
   network_interface {
     network = "default"
     access_config {}
+  }
+
+  metadata = {
+    ssh-keys = "theo.cattaneo.etu:${file("../id_rsa.pub")}"
   }
 }
